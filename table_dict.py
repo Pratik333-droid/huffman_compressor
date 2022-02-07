@@ -2,7 +2,6 @@
 
 from tkinter import *
 # import tk
-from encoder_decoder import test1
 class Table:
     
     def __init__(self,root):

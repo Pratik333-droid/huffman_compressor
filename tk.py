@@ -1,13 +1,13 @@
 from tkinter import *
 import tkinter as tk
-from encoder_decoder import buildHuffmanTree, test1, test2, test3
+from encoder_decoder import buildHuffmanTree, returnEncodedString, returnDecodedString, returnFrequencyDictionary , returnHuffmanDictionary
 from table_dict import run1
 
 root= tk.Tk()
 root.title('Huffman Compression')
 
 
-
+#variable x1 = original text
 def run():
 
     canvas1 = tk.Canvas(root, width = 1000, height = 500,  relief = 'raised',bg='sky blue')
@@ -31,10 +31,10 @@ def run():
 
     def huff ():
         
-        x1 = entry1.get()
+        original_text = entry1.get()
         # btn1=tk.Button(root,command=entry1.delete(1),bg='red', fg='white', font=('helvetica', 9, 'bold'),text="x")
         # canvas1.create_window(800,70,window=btn1)
-        if x1:
+        if original_text:
 
             label00 = tk.Label(text='Data is compressed.', bg='brown', fg='white', font=('helvetica', 12, 'bold'))
             canvas1.create_window(500, 130, window=label00)
@@ -59,7 +59,7 @@ def run():
                     label4.config(bg='sky blue',fg='black')
 
 
-                    label5 = tk.Label(root, text=x1,font=('helvetica', 10, 'bold'))
+                    label5 = tk.Label(root, text=original_text,font=('helvetica', 10, 'bold'))
                     canvas1.create_window(500, 250, window=label5)
                     
                     label5.config(bg='sky blue',fg='black')
@@ -71,11 +71,11 @@ def run():
                     canvas1.create_window(500, 200, window=label3)
                     label3.config(bg='sky blue',fg='black')
 
-                    buildHuffmanTree(x1)
-                    x2 = test1() #x2 is a dictionary
-                    x3 = test2() 
-                    x4 = test3()
-                    #x5 = test1() #x5 k ko lagi banako bro?
+                    buildHuffmanTree(original_text)
+                    x2 = returnHuffmanDictionary() #x2 is a  dictionary
+                    x3 = returnEncodedString() #encoded string
+                    x4 = returnDecodedString() #decoded string
+                    x5 = returnFrequencyDictionary() #x5 is a dictionary
             
 
 
@@ -84,7 +84,7 @@ def run():
                     label4.config(bg='sky blue',fg='black')
 
 
-                    label5 = tk.Label(root, text=x1,font=('helvetica', 10, 'bold'))
+                    label5 = tk.Label(root, text=original_text,font=('helvetica', 10, 'bold'))
                     canvas1.create_window(500, 250, window=label5)
                     label5.config(bg='sky blue',fg='black')
 
